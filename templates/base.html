@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Malaria Prediction</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="hero" style="background-image: url('static/image/banner.png');">
+        <div style="text-align: center; margin-top: 60px;">
+            <label class="creator">Develop by @analystkamlesh</label>
+        </div>
+        <div class="form-box" style="height: 460px;">
+            <label class="upload-label">
+                Malaria Prediction
+            </label>
+            {%if data[0]==0%}
+            <h1 style="color:red; margin: 10px;">Positive</h1>
+            <label style="width: 200px; text-align: center;">
+                <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 18px;margin-bottom: 8px;">"Get well soon my friend I am sending loads of good wishes for your fast recovery and good health I wish for a very better health for you"</p>
+                <label style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 17px;">Home Remedies:</label>  
+            </label>
+            <ol style="text-align: left; font-size: 14px; padding-left: 20px; font-family: Verdana, Geneva, Tahoma, sans-serif; margin-top: 10px;">
+                <li style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Drink a glass of turmeric milk every night to deal with malaria.</li>
+                <li style="font-family: Verdana, Geneva, Tahoma, sans-serif;">You can have 2 to 3 glasses of fresh orange juice if you are infected with malaria.</li>
+                <li style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Add ginger in hot water. Add honey to the concoction and drink it twice a day.</li>
+                <li style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Fresh juice extracted from sweet lime can be an effective home remedy for malaria.</li>
+                <li style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Apple cider vinegar can help in reducing fever caused in malaria.</li>
+            </ol>
+            {%else%}
+            <h1 style="color: green; margin: 10px;">Negative</h1>
+            <label style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 17px; text-align: left;">Your health is good, keep it up.</label>
+            <p><img src="{{ url_for('static',filename='image/health.jpg') }}" id="output" width="200" height="250"/></p>
+            {%endif%} 
+            <button style="margin-top:15px;" type="submit" class="predict" id="btn-predict" value="predict" onclick="history.back()">Go Back</button>
+        </div>
+    </div>
+</body>
+</html>

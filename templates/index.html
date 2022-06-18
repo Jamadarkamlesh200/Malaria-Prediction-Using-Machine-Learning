@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Malaria Prediction</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="hero" style="background-image: url('static/image/banner.png');">
+        <div style="text-align: center; margin-top: 60px;">
+            <label class="creator">Develop by @analystkamlesh</label>
+        </div>
+        <div class="form-box">
+            <form  method="post" action="{{url_for('upload')}}" enctype="multipart/form-data">
+                <label for="imageUpload" class="upload-label">
+                    Malaria Prediction
+                </label><br><br>
+                <label class="imageUpload">
+                    <input type="file" multiple="multiple" name="file" id="file-upload" onchange="loadFile(event)">
+                    <label for="file-upload">Select Image</label>
+                </label>
+                <p><img class="imageshow" id="output" width="200" height="200"/></p>
+                <button type="submit" class="predict" id="btn-predict" value="predict">Predict..!</button><br>
+            </form>  
+        </div>
+    </div>
+</body>
+<script>
+  var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+</html>
